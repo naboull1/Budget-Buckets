@@ -8,13 +8,27 @@ using namespace std;
 int incomeArray[1];
 int expenceArray[1];
 int choice;
+int expenseCurrent = 0;
+int incomeCurrent = 0;
+int incomeTally = 0;
+int expenseTally;
 
 void incomeTotal()
+{
+    for (int incomeTally = 0; incomeCurrent < incomeTally; incomeTally)
+    {
+        cout << "testing " << endl;
+        cout << incomeTally << endl;
+    }
+}
+
+void expensesTotal()
 {
 
 }
 
-void expensesTotal()
+
+void finalResults()
 {
 
 }
@@ -29,23 +43,56 @@ int main()
     cout << "my 1st income's weekly amount is:    ";
     cin >> incomeArray[0];
 
-
-    cout << "If you have additonal income to add press 1 otherwise press any other key to finish entering income";
+    i:
+    cout << "Press 1 when ready to add income otherwise press 2 to finish entering income";
     cin >> choice;
 
     switch (choice)
     {
     case 1:
         cout << "Please enter an additional income value:    ";
-        cin >> incomeArray[1];
+        cin >> incomeArray[incomeCurrent];
         cout << "Additional income added";
+        incomeTally++;
+        goto i;
+
+    case 2:
+        cout << "Preparing to add expenses" << endl;
+        //break;
+    }
+    e:
+    cout << "Press 1 when ready to enter expenses otherwise press 2 to go to results" << endl;
+    cin >> choice;
+
+
+    switch (choice)
+    {
+    case 1:
+        cout << "Please enter an Expense:    " << endl;
+        cin >> expenceArray[expenseCurrent];
+        expenseCurrent++;
+        cout << "Additional expense added" << endl;
+        goto e;
+
+
+    case 2:
+        cout << "Compiling Results" << endl;
+        incomeTally = incomeCurrent;
+        expenseTally = expenseCurrent;
+        //incomeTotal();
+        //expensesTotal();
+
         break;
     }
-    else
-        cout << "test";
-        break;
 
-        cout << "finished";
+
+
+    cout << "Total Income is :  ";
+    for (size_t i = 0; i < incomeTally; i++)
+    {
+        cout << "testing " << endl;
+        cout << incomeArray[incomeTally] << endl;
+    }
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
