@@ -77,8 +77,8 @@ int main()
 
     case 2:
         cout << "Compiling Results" << endl;
-        incomeTally = incomeCurrent;
-        expenseTally = expenseCurrent;
+        //incomeTally = incomeCurrent;
+        //expenseTally = expenseCurrent;
         //incomeTotal();
         //expensesTotal();
 
@@ -88,7 +88,7 @@ int main()
 
 
     cout << "Total Income is :  ";
-    for (size_t i = 0; i < incomeTally; i++)
+    for (size_t i = 0; i < incomeTally+1; i++)
     {
         cout << "testing " << endl;
         cout << incomeArray[incomeTally] << endl;
