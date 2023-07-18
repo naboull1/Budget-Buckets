@@ -1,11 +1,51 @@
-// Budget Buckets Tool.cpp : This file contains the 'main' function. Program execution begins and ends there.
+// BudgetBuckets.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
 #include <iostream>
+using namespace std;
+
+//Variables
+int incomeArray[1];
+int expenceArray[1];
+int choice;
+
+void incomeTotal()
+{
+
+}
+
+void expensesTotal()
+{
+
+}
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+
+
+    cout << "H\t\tWelcome to Budget Buckets\n";
+    cout << "lets start with entering your first income amount (weekly)\n";
+    cout << "my 1st income's weekly amount is:    ";
+    cin >> incomeArray[0];
+
+
+    cout << "If you have additonal income to add press 1 otherwise press any other key to finish entering income";
+    cin >> choice;
+
+    switch (choice)
+    {
+    case 1:
+        cout << "Please enter an additional income value:    ";
+        cin >> incomeArray[1];
+        cout << "Additional income added";
+        break;
+    }
+    else
+        cout << "test";
+        break;
+
+        cout << "finished";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
