@@ -2,46 +2,52 @@
 //
 
 #include <iostream>
+#include <string>
+#include <algorithm>
 using namespace std;
 
 //Variables
-int incomeArray[1];
-int expenceArray[1];
+
+int incomeArray[10];
+int expenceArray[20];
 int choice;
 int expenseCurrent = 0;
 int incomeCurrent = 0;
 int incomeTally = 0;
-int expenseTally;
+int expenseTally = 0;
+int incomeArraySize = sizeof(incomeArray) / sizeof(incomeArray[0]);
+int totalIncome;
+int totalExpenses;
+int finalResultDifference;
 
 void incomeTotal()
 {
-    for (int incomeTally = 0; incomeCurrent < incomeTally; incomeTally)
+    for (int i = 0; i < incomeTally; i++)
     {
-        cout << "testing " << endl;
-        cout << incomeTally << endl;
+        totalIncome += incomeArray[i];
     }
 }
 
+
 void expensesTotal()
 {
-
+    for (int i = 0; i < expenseTally; i++)
+    {
+        totalExpenses += expenceArray[i];
+    }
 }
 
 
 void finalResults()
 {
-
+    finalResultDifference = totalIncome - totalExpenses;
 }
 
 
 int main()
 {
-
-
-    cout << "H\t\tWelcome to Budget Buckets\n";
-    cout << "lets start with entering your first income amount (weekly)\n";
-    cout << "my 1st income's weekly amount is:    ";
-    cin >> incomeArray[0];
+    cout << "\t\tWelcome to Budget Buckets\n";
+    cout << "lets start with entering your income amount (weekly)\n";
 
     i:
     cout << "Press 1 when ready to add income otherwise press 2 to finish entering income";
@@ -50,15 +56,15 @@ int main()
     switch (choice)
     {
     case 1:
-        cout << "Please enter an additional income value:    ";
-        cin >> incomeArray[incomeCurrent];
-        cout << "Additional income added";
+        cout << "Please enter an additional income value:    " << endl;
+        cin >> incomeArray[incomeTally];
+        cout << "Additional income added" << endl;
         incomeTally++;
+        cout << "income tally is now  " << incomeTally << endl;
         goto i;
 
     case 2:
         cout << "Preparing to add expenses" << endl;
-        //break;
     }
     e:
     cout << "Press 1 when ready to enter expenses otherwise press 2 to go to results" << endl;
@@ -69,30 +75,25 @@ int main()
     {
     case 1:
         cout << "Please enter an Expense:    " << endl;
-        cin >> expenceArray[expenseCurrent];
-        expenseCurrent++;
+        cin >> expenceArray[expenseTally];
+        expenseTally++;
         cout << "Additional expense added" << endl;
         goto e;
 
 
     case 2:
         cout << "Compiling Results" << endl;
-        //incomeTally = incomeCurrent;
-        //expenseTally = expenseCurrent;
-        //incomeTotal();
-        //expensesTotal();
-
         break;
     }
 
 
 
-    cout << "Total Income is :  ";
-    for (size_t i = 0; i < incomeTally+1; i++)
-    {
-        cout << "testing " << endl;
-        cout << incomeArray[incomeTally] << endl;
-    }
+    incomeTotal();
+    expensesTotal();
+    finalResults();
+    cout << "Your total income is " << totalIncome << endl;
+    cout << "Your total Expenses are " << totalExpenses << endl;
+    cout << "Your total Spare is " << finalResultDifference << endl;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
